@@ -1537,3 +1537,14 @@ body,
   border-color: #6f9ff7;
   background: #103362;
 }
+
+
+/* Phone-format spacing: preserve visible side gutters so all rounded corners render cleanly. */
+.app-main,
+.auth-screen {
+  width: min(calc(100vw - 30px), 620px);
+}
+
+.bottom-nav {
+  width: min(calc(100vw - 30px), 620px);
+}
