@@ -994,3 +994,28 @@ h2 { margin-top: 5px; font-size: 19px; line-height: 1.08; }
 .mobile-drawer .desktop-rail__nav {
   width: 100%;
 }
+
+
+/* Reference-matched mobile bottom navigation: dark navy bar at every theme state. */
+.bottom-nav {
+  border-top: 1px solid rgba(187, 211, 246, .62);
+  background: #081a35;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, .22);
+}
+
+.bottom-nav__item {
+  color: #8d9bb1;
+}
+
+.bottom-nav__item--active {
+  color: #7db0ff;
+}
+
+.bottom-nav__item:hover {
+  color: #a9c6f8;
+}
+
+.dark .bottom-nav {
+  border-top-color: rgba(187, 211, 246, .62);
+  background: #081a35;
+}
