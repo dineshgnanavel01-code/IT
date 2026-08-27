@@ -447,3 +447,240 @@ h2 { margin-top: 5px; font-size: 19px; line-height: 1.08; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; scroll-behavior: auto !important; transition-duration: .01ms !important; }
 }
+
+
+/* Dina dark appearance — driven by ThemeContext on the document root. */
+.dark {
+  --ink: #edf4ff;
+  --ink-soft: #a9b8cc;
+  --muted: #7e8da4;
+  --line: #24395d;
+  --canvas: #06142f;
+  --surface: #0c2042;
+  --blue-tint: rgba(37, 99, 235, .2);
+  --teal-tint: rgba(34, 169, 157, .18);
+  --violet-tint: rgba(116, 97, 233, .19);
+  --orange-tint: rgba(240, 154, 75, .18);
+  --red-tint: rgba(220, 98, 105, .18);
+  --green-tint: rgba(25, 150, 106, .18);
+}
+
+.dark html,
+.dark body,
+.dark #root,
+.dark .itflow-app-shell,
+.dark .app-shell,
+.dark .app-main {
+  background: var(--canvas);
+  color: var(--ink);
+}
+
+.dark .mobile-header {
+  border-color: rgba(123, 156, 207, .16);
+  background: rgba(6, 20, 47, .9);
+}
+
+.dark .card-surface,
+.dark .settings-list,
+.dark .asset-links,
+.dark .asset-links button,
+.dark .setting-row,
+.dark .login-card,
+.dark .sso-button {
+  border-color: rgba(123, 156, 207, .18);
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.dark .card-surface:hover,
+.dark .asset-links button:hover,
+.dark .setting-row:hover {
+  background: #102951;
+  border-color: rgba(113, 164, 248, .45);
+}
+
+.dark .muted-copy,
+.dark .dashboard-welcome__profile span:not(.user-avatar),
+.dark .ticket-row__meta,
+.dark .asset-row__body small,
+.dark .notification-row small,
+.dark .notification-row em,
+.dark .setting-row small,
+.dark .asset-summary span,
+.dark .task-group__heading span,
+.dark .health-score__details span,
+.dark .login-secure {
+  color: var(--muted);
+}
+
+.dark .icon-button,
+.dark .stat-card__arrow,
+.dark .ticket-row__footer > svg,
+.dark .asset-row__aside > svg,
+.dark .asset-links button > svg:last-child,
+.dark .notification-row > svg,
+.dark .setting-row > svg:last-child {
+  color: #8fa5c4;
+}
+
+.dark .select-button,
+.dark .quick-grid button,
+.dark .ticket-description,
+.dark .input-wrap,
+.dark .segmented-tabs {
+  border-color: rgba(123, 156, 207, .2);
+  background: #091b39;
+  color: var(--ink);
+}
+
+.dark .quick-grid button:hover,
+.dark .select-button:hover,
+.dark .sso-button:hover {
+  background: #122d59;
+}
+
+.dark .chart-card .activity-chart line {
+  stroke: #294263;
+}
+
+.dark .chart-card .activity-chart circle {
+  fill: var(--surface);
+}
+
+.dark .chart-x-labels,
+.dark .chart-y-labels {
+  color: #7187a5;
+}
+
+.dark .profile-hero {
+  background: linear-gradient(135deg, #0c2042 0%, #102951 100%);
+}
+
+.dark .outline-button {
+  border-color: rgba(123, 156, 207, .35);
+  background: #102951;
+  color: #9fc3ff;
+}
+
+.dark .outline-button:hover {
+  background: #173969;
+}
+
+.dark .asset-summary > div {
+  background: rgba(37, 99, 235, .2);
+}
+
+.dark .asset-summary > div:nth-child(2) {
+  background: rgba(34, 169, 157, .18);
+}
+
+.dark .asset-summary > div:nth-child(3) {
+  background: rgba(240, 154, 75, .18);
+}
+
+.dark .ticket-detail-actions button {
+  background: rgba(37, 99, 235, .2);
+}
+
+.dark .auth-screen--login {
+  background: radial-gradient(circle at 50% 10%, #102951, #06142f 70%);
+}
+
+.dark .auth-screen--login::before {
+  background: rgba(71, 132, 230, .11);
+}
+
+.dark .auth-back-button {
+  color: #b4c3d9;
+}
+
+.dark .login-card .auth-kicker {
+  color: #8db7ff;
+}
+
+.dark .login-card .input-wrap input {
+  color: var(--ink);
+}
+
+.dark .auth-divider::before,
+.dark .auth-divider::after,
+.dark .ticket-detail-actions,
+.dark .setting-row,
+.dark .asset-links button,
+.dark .health-score__details > div {
+  border-color: rgba(123, 156, 207, .16);
+}
+
+.dark .bottom-nav {
+  border-color: rgba(123, 156, 207, .2);
+  background: rgba(8, 25, 53, .95);
+}
+
+.dark .bottom-nav__item {
+  color: #8094af;
+}
+
+.dark .bottom-nav__item--active {
+  color: #8db7ff;
+}
+
+
+/* Keep profile account actions stacked as individual rows. */
+.settings-list > button {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  padding: 16px;
+  border-bottom: 1px solid #edf1f6;
+  color: var(--ink);
+  background: var(--surface);
+  text-align: left;
+}
+
+.settings-list > button:last-child {
+  border-bottom: 0;
+}
+
+.settings-list > button:hover {
+  background: #f8faff;
+}
+
+.settings-list > button > svg:first-child {
+  flex: 0 0 auto;
+  color: var(--blue);
+}
+
+.settings-list > button > span {
+  min-width: 0;
+  flex: 1;
+}
+
+.settings-list > button strong,
+.settings-list > button small {
+  display: block;
+}
+
+.settings-list > button strong {
+  font-size: 11px;
+}
+
+.settings-list > button small {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 9px;
+}
+
+.settings-list > button > svg:last-child {
+  flex: 0 0 auto;
+  color: #a8b4c4;
+}
+
+.dark .settings-list > button {
+  border-color: rgba(123, 156, 207, .16);
+  background: var(--surface);
+}
+
+.dark .settings-list > button:hover {
+  background: #102951;
+}
