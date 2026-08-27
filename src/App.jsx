@@ -53,7 +53,7 @@ const navItems = [
 ];
 
 const tickets = [
-  { id: "INC-2048", title: "Network access issue", meta: "Reported by Alex Johnson", time: "Just now", status: "Open", priority: "High", icon: Wifi },
+  { id: "INC-2048", title: "Network access issue", meta: "Reported by Dina", time: "Just now", status: "Open", priority: "High", icon: Wifi },
   { id: "REQ-2047", title: "New laptop request", meta: "Requested by Sarah Lee", time: "2h ago", status: "In progress", priority: "Medium", icon: Laptop },
   { id: "INC-2046", title: "Email not syncing", meta: "Reported by Michael Brown", time: "1d ago", status: "Resolved", priority: "Low", icon: Mail },
   { id: "REQ-2045", title: "VPN permission update", meta: "Requested by Olivia Chen", time: "2d ago", status: "Resolved", priority: "Low", icon: ShieldCheck },
@@ -68,13 +68,13 @@ const tasks = [
 ];
 
 const assets = [
-  { name: "MacBook Pro 14”", id: "MBP14-001", owner: "Alex Johnson", type: "Laptop", icon: Laptop, tint: "blue", state: "Active" },
+  { name: "MacBook Pro 14”", id: "MBP14-001", owner: "Dina", type: "Laptop", icon: Laptop, tint: "blue", state: "Active" },
   { name: "Dell Monitor", id: "LM24-002", owner: "Marketing Team", type: "Monitor", icon: Monitor, tint: "cyan", state: "Active" },
   { name: "Cisco Router", id: "CCSR-001", owner: "Network Closet", type: "Router", icon: Router, tint: "violet", state: "Active" },
 ];
 
 const activities = [
-  { title: "Laptop assigned", meta: "Alex Johnson · 1h ago", icon: Laptop, tone: "teal" },
+  { title: "Laptop assigned", meta: "Dina · 1h ago", icon: Laptop, tone: "teal" },
   { title: "VPN access approved", meta: "Maya Chen · 3h ago", icon: ShieldCheck, tone: "blue" },
   { title: "Server patch completed", meta: "System · 5h ago", icon: Server, tone: "violet" },
 ];
@@ -112,7 +112,7 @@ function DesktopRail({ active, onChange, onLogout }) {
     <div className="desktop-rail__brand"><BrandMark small /><div><strong>Dina</strong><span>Operations console</span></div></div>
     <div className="desktop-rail__workspace"><span className="eyebrow">Workspace</span><button onClick={() => toast("Dina workspace selected")}><span className="workspace-dot" /><span>Dina HQ</span><ChevronRight size={15} /></button></div>
     <nav className="desktop-rail__nav" aria-label="Sidebar navigation"><span className="eyebrow">Manage</span>{navItems.map(({ id, label, icon: Icon }) => <button key={id} className={cn(active === id && "desktop-rail__item--active")} onClick={() => onChange(id)}><Icon size={18} /><span>{label}</span>{id === "tickets" && <b>24</b>}</button>)}<span className="eyebrow desktop-rail__eyebrow-spaced">System</span><button onClick={() => onChange("notifications")} className={cn(active === "notifications" && "desktop-rail__item--active")}><Bell size={18} /><span>Notifications</span><b className="desktop-rail__badge">3</b></button><button onClick={() => onChange("settings")} className={cn(active === "settings" && "desktop-rail__item--active")}><Settings size={18} /><span>Settings</span></button></nav>
-    <div className="desktop-rail__footer"><div className="desktop-rail__user"><UserAvatar /><div><strong>Alex Johnson</strong><span>IT Administrator</span></div><button aria-label="Sign out" onClick={onLogout}><LogOut size={16} /></button></div><div className="desktop-rail__help"><HelpCircle size={15} /><span>Need help?</span><ChevronRight size={14} /></div></div>
+    <div className="desktop-rail__footer"><div className="desktop-rail__user"><UserAvatar /><div><strong>Dina</strong><span>IT Administrator</span></div><button aria-label="Sign out" onClick={onLogout}><LogOut size={16} /></button></div><div className="desktop-rail__help"><HelpCircle size={15} /><span>Need help?</span><ChevronRight size={14} /></div></div>
   </aside>;
 }
 
@@ -121,7 +121,7 @@ function MobileHeader({ title, onMenu, onNotifications, showBack, onBack, action
 }
 
 function Dashboard({ onNavigate }) {
-  return <div className="screen screen--dashboard"><section className="dashboard-welcome animate-in-rise"><div><p className="eyebrow eyebrow--blue">IT OPERATIONS / TUESDAY, MAY 20</p><h1>Good morning, Alex</h1><p className="muted-copy">Here’s what’s happening in your IT environment.</p></div><div className="dashboard-welcome__profile"><UserAvatar /><div><span>Workspace admin</span><strong>Alex Johnson</strong></div></div></section><section className="stat-grid animate-in-rise" aria-label="IT overview statistics"><StatCard icon={Ticket} tone="blue" label="Open Tickets" value="24" delta="4 from yesterday" /><StatCard icon={ClipboardCheck} tone="teal" label="Active Tasks" value="12" delta="2 from yesterday" /><StatCard icon={Laptop} tone="violet" label="Assets" value="148" delta="No change" neutral /></section><section className="content-grid"><div className="content-column"><WeeklyActivity /><RecentActivities onViewAll={() => onNavigate("tickets")} /></div><div className="content-column"><SystemHealth /><QuickActions onNavigate={onNavigate} /></div></section></div>;
+  return <div className="screen screen--dashboard"><section className="dashboard-welcome animate-in-rise"><div><p className="eyebrow eyebrow--blue">IT OPERATIONS / TUESDAY, MAY 20</p><h1>Good morning, Dina</h1><p className="muted-copy">Here’s what’s happening in your IT environment.</p></div><div className="dashboard-welcome__profile"><UserAvatar /><div><span>Workspace admin</span><strong>Dina</strong></div></div></section><section className="stat-grid animate-in-rise" aria-label="IT overview statistics"><StatCard icon={Ticket} tone="blue" label="Open Tickets" value="24" delta="4 from yesterday" /><StatCard icon={ClipboardCheck} tone="teal" label="Active Tasks" value="12" delta="2 from yesterday" /><StatCard icon={Laptop} tone="violet" label="Assets" value="148" delta="No change" neutral /></section><section className="content-grid"><div className="content-column"><WeeklyActivity /><RecentActivities onViewAll={() => onNavigate("tickets")} /></div><div className="content-column"><SystemHealth /><QuickActions onNavigate={onNavigate} /></div></section></div>;
 }
 
 function StatCard({ icon, tone, label, value, delta, neutral }) {
@@ -169,7 +169,7 @@ function Tasks({ onNavigate }) {
 }
 
 function Assets({ onNavigate }) {
-  return <div className="screen screen--inner"><div className="inner-title-row"><div><span className="section-kicker">INVENTORY</span><h1>Assets</h1><p className="muted-copy">Know what is connected, assigned, and protected.</p></div><button className="primary-icon-button" onClick={() => toast("Register asset form opened")} aria-label="Register asset"><Plus size={20} /></button></div><div className="asset-summary"><div><span>Total assets</span><strong>148</strong></div><div><span>Assigned</span><strong>124</strong></div><div><span>Needs review</span><strong className="warning-text">6</strong></div></div><div className="asset-list">{assets.map(({ name, id, owner, type, icon: Icon, tint, state }) => <button className="asset-row card-surface" key={name} onClick={() => toast(`${name} details opened`)}><IconBadge icon={Icon} tone={tint} /><span className="asset-row__body"><strong>{name}</strong><small>{id} · {type}</small><small><UserCheck size={13} /> {owner}</small></span><span className="asset-row__aside"><StatusPill tone="resolved">{state}</StatusPill><MoreVertical size={17} /></span></button>)}</div><div className="asset-links card-surface"><button onClick={() => onNavigate("notifications")}><Bell size={18} /><span>Notifications</span><b>3</b><ChevronRight size={16} /></button><button onClick={() => onNavigate("profile")}><UserRound size={18} /><span>Profile</span><small>Alex Johnson</small><ChevronRight size={16} /></button><button onClick={() => onNavigate("settings")}><Settings size={18} /><span>Settings</span><small>System preferences</small><ChevronRight size={16} /></button></div></div>;
+  return <div className="screen screen--inner"><div className="inner-title-row"><div><span className="section-kicker">INVENTORY</span><h1>Assets</h1><p className="muted-copy">Know what is connected, assigned, and protected.</p></div><button className="primary-icon-button" onClick={() => toast("Register asset form opened")} aria-label="Register asset"><Plus size={20} /></button></div><div className="asset-summary"><div><span>Total assets</span><strong>148</strong></div><div><span>Assigned</span><strong>124</strong></div><div><span>Needs review</span><strong className="warning-text">6</strong></div></div><div className="asset-list">{assets.map(({ name, id, owner, type, icon: Icon, tint, state }) => <button className="asset-row card-surface" key={name} onClick={() => toast(`${name} details opened`)}><IconBadge icon={Icon} tone={tint} /><span className="asset-row__body"><strong>{name}</strong><small>{id} · {type}</small><small><UserCheck size={13} /> {owner}</small></span><span className="asset-row__aside"><StatusPill tone="resolved">{state}</StatusPill><MoreVertical size={17} /></span></button>)}</div><div className="asset-links card-surface"><button onClick={() => onNavigate("notifications")}><Bell size={18} /><span>Notifications</span><b>3</b><ChevronRight size={16} /></button><button onClick={() => onNavigate("profile")}><UserRound size={18} /><span>Profile</span><small>Dina</small><ChevronRight size={16} /></button><button onClick={() => onNavigate("settings")}><Settings size={18} /><span>Settings</span><small>System preferences</small><ChevronRight size={16} /></button></div></div>;
 }
 
 function Notifications() {
@@ -178,7 +178,7 @@ function Notifications() {
 }
 
 function Profile({ onNavigate, onLogout }) {
-  return <div className="screen screen--inner"><div className="profile-hero card-surface"><div className="profile-hero__top"><UserAvatar initials="AJ" large /><span className="profile-verified"><Check size={13} /> Verified</span></div><h1>Alex Johnson</h1><p>IT Administrator · Dina HQ</p><button className="outline-button" onClick={() => toast("Edit profile form opened")}>Edit profile</button></div><div className="profile-section"><span className="section-kicker">ACCOUNT</span><div className="settings-list card-surface"><button onClick={() => toast("Personal details opened")}><UserRound size={18} /><span><strong>Personal details</strong><small>Contact and role information</small></span><ChevronRight size={16} /></button><button onClick={() => toast("Security settings opened")}><KeyRound size={18} /><span><strong>Security</strong><small>Password and sign-in protection</small></span><ChevronRight size={16} /></button><button onClick={() => onNavigate("settings")}><Settings size={18} /><span><strong>Preferences</strong><small>Notifications and appearance</small></span><ChevronRight size={16} /></button></div></div><button className="logout-button" onClick={onLogout}><LogOut size={17} /> Sign out of Dina</button></div>;
+  return <div className="screen screen--inner"><div className="profile-hero card-surface"><div className="profile-hero__top"><UserAvatar initials="D" large /><span className="profile-verified"><Check size={13} /> Verified</span></div><h1>Dina</h1><p>IT Administrator · Dina HQ</p><button className="outline-button" onClick={() => toast("Edit profile form opened")}>Edit profile</button></div><div className="profile-section"><span className="section-kicker">ACCOUNT</span><div className="settings-list card-surface"><button onClick={() => toast("Personal details opened")}><UserRound size={18} /><span><strong>Personal details</strong><small>Contact and role information</small></span><ChevronRight size={16} /></button><button onClick={() => toast("Security settings opened")}><KeyRound size={18} /><span><strong>Security</strong><small>Password and sign-in protection</small></span><ChevronRight size={16} /></button><button onClick={() => onNavigate("settings")}><Settings size={18} /><span><strong>Preferences</strong><small>Notifications and appearance</small></span><ChevronRight size={16} /></button></div></div><button className="logout-button" onClick={onLogout}><LogOut size={17} /> Sign out of Dina</button></div>;
 }
 
 function SettingsScreen({ onLogout }) {

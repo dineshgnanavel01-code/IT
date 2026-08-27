@@ -72,7 +72,7 @@ button:focus-visible, input:focus-visible { outline: 3px solid rgba(37, 99, 235,
 .desktop-rail__help { display: flex; align-items: center; gap: 8px; padding: 14px 10px 0; color: rgba(255,255,255,.43); font-size: 10px; }
 .desktop-rail__help svg:last-child { margin-left: auto; }
 
-.user-avatar { display: grid; place-items: center; width: 34px; height: 34px; flex: 0 0 34px; border: 2px solid rgba(255,255,255,.86); border-radius: 50%; color: #fff; background: linear-gradient(145deg, #7db5ff, #2751a1 78%); box-shadow: 0 5px 12px rgba(10,43,104,.18); font-size: 10px; font-weight: 800; }
+.user-avatar { display: grid; place-items: center; width: 34px; height: 34px; flex: 0 0 34px; border: 2px solid rgba(255,255,255,.86); border-radius: 50%; color: #fff; background: linear-gradient(145deg, #ffb07c 0%, #e1788b 45%, #715fe5 100%); box-shadow: 0 5px 12px rgba(10,43,104,.18); font-size: 10px; font-weight: 800; }
 .user-avatar--large { width: 74px; height: 74px; flex-basis: 74px; border-width: 3px; font-size: 19px; }
 
 .mobile-header { display: none; height: 76px; align-items: center; justify-content: space-between; padding: 0 24px; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.82); backdrop-filter: blur(14px); }
