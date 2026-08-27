@@ -1341,3 +1341,80 @@ h2 { margin-top: 5px; font-size: 19px; line-height: 1.08; }
   width: min(100vw, 620px);
   transform: translateX(-50%);
 }
+
+
+/* Full dark appearance: every app surface follows the selected dark theme. */
+.dark .app-shell {
+  background: #020c20;
+}
+
+.dark .app-main,
+.dark .mobile-header,
+.dark .dashboard-reference {
+  background: #071a35;
+  color: #eef4ff;
+}
+
+.dark .dashboard-reference .reference-overline,
+.dark .dashboard-reference .reference-stat-value,
+.dark .dashboard-reference .reference-section-heading h2,
+.dark .dashboard-reference .reference-activity-row strong,
+.dark .dashboard-reference .reference-bell {
+  color: #eef4ff;
+}
+
+.dark .dashboard-reference .reference-dashboard-heading h1,
+.dark .dashboard-reference .reference-stat-label,
+.dark .dashboard-reference .reference-stat-detail,
+.dark .dashboard-reference .reference-activity-row small {
+  color: #8ea2bf;
+}
+
+.dark .dashboard-reference .reference-bell,
+.dark .dashboard-reference .reference-stat-card,
+.dark .dashboard-reference .reference-activity-list,
+.dark .dashboard-reference .reference-activity-row {
+  border-color: rgba(145, 174, 222, .18);
+  background: #0c2449;
+}
+
+.dark .dashboard-reference .reference-stat-card,
+.dark .dashboard-reference .reference-activity-list {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .18);
+}
+
+.dark .dashboard-reference .reference-bell {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .22);
+}
+
+.dark .dashboard-reference .reference-activity-row {
+  border-bottom-color: rgba(145, 174, 222, .14);
+}
+
+.dark .dashboard-reference .reference-section-heading button {
+  color: #8cb6ff;
+}
+
+.dark .dashboard-reference .reference-stat-icon--blue { color: #8dbaff; background: rgba(53, 117, 238, .25); }
+.dark .dashboard-reference .reference-stat-icon--mint { color: #75e5b8; background: rgba(28, 163, 115, .24); }
+.dark .dashboard-reference .reference-stat-icon--amber { color: #ffd36d; background: rgba(204, 131, 15, .24); }
+.dark .dashboard-reference .reference-stat-icon--violet { color: #c3a0ff; background: rgba(113, 56, 201, .24); }
+
+.dark .dashboard-reference .app-main:has(.dashboard-reference) .bottom-nav,
+.dark .app-main:has(.dashboard-reference) .bottom-nav {
+  border-top-color: rgba(187, 211, 246, .28);
+  background: #081a35;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, .28);
+}
+
+.dark .app-main:has(.dashboard-reference) .bottom-nav__item {
+  color: #8496b2;
+}
+
+.dark .app-main:has(.dashboard-reference) .bottom-nav__item--active {
+  color: #82b4ff;
+}
+
+.dark .app-main:has(.dashboard-reference) .bottom-nav__item:hover {
+  color: #b6d1ff;
+}

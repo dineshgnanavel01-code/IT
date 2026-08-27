@@ -237,11 +237,11 @@ function Login({ onSignIn, onBack }) {
 }
 
 export default function App() {
-  const initialScreen = typeof window !== "undefined" ? ({ "/": "dashboard", "/welcome": "welcome", "/login": "login", "/dashboard": "dashboard", "/tickets": "tickets", "/tasks": "tasks", "/assets": "assets", "/profile": "profile", "/notifications": "notifications", "/settings": "settings" }[window.location.pathname] || "dashboard") : "dashboard";
+  const initialScreen = typeof window !== "undefined" ? ({ "/": "dashboard", "/welcome": "welcome", "/login": "dashboard", "/dashboard": "dashboard", "/tickets": "tickets", "/tasks": "tasks", "/assets": "assets", "/profile": "profile", "/notifications": "notifications", "/settings": "settings" }[window.location.pathname] || "dashboard") : "dashboard";
   const [screen, setScreen] = useState(initialScreen);
   const navigate = (destination) => { setScreen(destination); window.history.replaceState({}, "", destination === "dashboard" ? "/dashboard" : `/${destination}`); };
   const signOut = () => { setScreen("login"); window.history.replaceState({}, "", "/login"); toast("You have been signed out"); };
-  if (screen === "welcome") return <><Welcome onStart={() => navigate("login")} /><Toaster position="bottom-center" /></>;
+  if (screen === "welcome") return <><Welcome onStart={() => navigate("dashboard")} /><Toaster position="bottom-center" /></>;
   if (screen === "login") return <><Login onSignIn={() => navigate("dashboard")} onBack={() => navigate("welcome")} /><Toaster position="bottom-center" /></>;
   const titles = { dashboard: "Dashboard", tickets: "Tickets", tasks: "Tasks", assets: "Assets", profile: "Profile", notifications: "Notifications", settings: "Settings" };
   const content = screen === "dashboard" ? <Dashboard onNavigate={navigate} /> : screen === "tickets" ? <Tickets onNavigate={navigate} /> : screen === "tasks" ? <Tasks onNavigate={navigate} /> : screen === "assets" ? <Assets onNavigate={navigate} /> : screen === "notifications" ? <Notifications /> : screen === "settings" ? <SettingsScreen onLogout={signOut} /> : <Profile onNavigate={navigate} onLogout={signOut} />;
