@@ -237,7 +237,7 @@ function Login({ onSignIn, onBack }) {
 }
 
 export default function App() {
-  const initialScreen = typeof window !== "undefined" ? ({ "/": "dashboard", "/welcome": "welcome", "/login": "dashboard", "/dashboard": "dashboard", "/tickets": "tickets", "/tasks": "tasks", "/assets": "assets", "/profile": "profile", "/notifications": "notifications", "/settings": "settings" }[window.location.pathname] || "dashboard") : "dashboard";
+  const initialScreen = typeof window !== "undefined" ? ({ "/": "login", "/welcome": "welcome", "/login": "login", "/dashboard": "dashboard", "/tickets": "tickets", "/tasks": "tasks", "/assets": "assets", "/profile": "profile", "/notifications": "notifications", "/settings": "settings" }[window.location.pathname] || "dashboard") : "dashboard";
   const [screen, setScreen] = useState(initialScreen);
   const navigate = (destination) => { setScreen(destination); window.history.replaceState({}, "", destination === "dashboard" ? "/dashboard" : `/${destination}`); };
   const signOut = () => { setScreen("login"); window.history.replaceState({}, "", "/login"); toast("You have been signed out"); };
