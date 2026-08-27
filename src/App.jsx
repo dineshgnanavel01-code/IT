@@ -116,8 +116,8 @@ function DesktopRail({ active, onChange, onLogout }) {
   </aside>;
 }
 
-function MobileHeader({ title, onMenu, onNotifications, showBack, onBack, action }) {
-  return <header className="mobile-header"><div className="mobile-header__left">{showBack ? <button className="icon-button" onClick={onBack} aria-label="Go back"><ArrowLeft size={20} /></button> : <button className="icon-button mobile-menu-button" onClick={onMenu} aria-label="Open menu"><Menu size={21} /></button>}<div className="mobile-header__title">{title}</div></div><div className="mobile-header__actions">{action}<button className="icon-button notification-button" onClick={onNotifications} aria-label="Open notifications"><Bell size={20} /><span>3</span></button></div></header>;
+function MobileHeader({ title, onNotifications, showBack, onBack, action }) {
+  return <header className="mobile-header"><div className="mobile-header__left">{showBack ? <button className="icon-button" onClick={onBack} aria-label="Go back"><ArrowLeft size={20} /></button> : null}<div className="mobile-header__title">{title}</div></div><div className="mobile-header__actions">{action}<button className="icon-button notification-button" onClick={onNotifications} aria-label="Open notifications"><Bell size={20} /><span>3</span></button></div></header>;
 }
 
 function Dashboard({ onNavigate }) {
@@ -205,15 +205,14 @@ function Login({ onSignIn, onBack }) {
 }
 
 export default function App() {
-  const initialScreen = typeof window !== "undefined" ? ({ "/": "welcome", "/welcome": "welcome", "/login": "login", "/dashboard": "dashboard", "/tickets": "tickets", "/tasks": "tasks", "/assets": "assets", "/profile": "profile", "/notifications": "notifications", "/settings": "settings" }[window.location.pathname] || "dashboard") : "dashboard";
+  const initialScreen = typeof window !== "undefined" ? ({ "/": "dashboard", "/welcome": "welcome", "/login": "login", "/dashboard": "dashboard", "/tickets": "tickets", "/tasks": "tasks", "/assets": "assets", "/profile": "profile", "/notifications": "notifications", "/settings": "settings" }[window.location.pathname] || "dashboard") : "dashboard";
   const [screen, setScreen] = useState(initialScreen);
-  const [menuOpen, setMenuOpen] = useState(false);
-  const navigate = (destination) => { setScreen(destination); setMenuOpen(false); window.history.replaceState({}, "", destination === "dashboard" ? "/dashboard" : `/${destination}`); };
+  const navigate = (destination) => { setScreen(destination); window.history.replaceState({}, "", destination === "dashboard" ? "/dashboard" : `/${destination}`); };
   const signOut = () => { setScreen("login"); window.history.replaceState({}, "", "/login"); toast("You have been signed out"); };
   if (screen === "welcome") return <><Welcome onStart={() => navigate("login")} /><Toaster position="bottom-center" /></>;
   if (screen === "login") return <><Login onSignIn={() => navigate("dashboard")} onBack={() => navigate("welcome")} /><Toaster position="bottom-center" /></>;
   const titles = { dashboard: "Dashboard", tickets: "Tickets", tasks: "Tasks", assets: "Assets", profile: "Profile", notifications: "Notifications", settings: "Settings" };
   const content = screen === "dashboard" ? <Dashboard onNavigate={navigate} /> : screen === "tickets" ? <Tickets onNavigate={navigate} /> : screen === "tasks" ? <Tasks onNavigate={navigate} /> : screen === "assets" ? <Assets onNavigate={navigate} /> : screen === "notifications" ? <Notifications /> : screen === "settings" ? <SettingsScreen onLogout={signOut} /> : <Profile onNavigate={navigate} onLogout={signOut} />;
   const showBack = screen === "notifications" || screen === "settings";
-  return <div className="app-shell"><DesktopRail active={screen} onChange={navigate} onLogout={signOut} /><div className="app-main"><MobileHeader title={titles[screen]} onMenu={() => setMenuOpen(true)} onNotifications={() => navigate("notifications")} showBack={showBack} onBack={() => navigate("dashboard")} action={screen === "dashboard" ? <div className="mobile-header__brand"><BrandMark small /></div> : null} /><main>{content}</main><BottomNav active={screen} onChange={navigate} /></div>{menuOpen && <div className="mobile-drawer-backdrop" onClick={() => setMenuOpen(false)}><aside className="mobile-drawer" onClick={(event) => event.stopPropagation()}><div className="mobile-drawer__top"><div className="desktop-rail__brand"><BrandMark small /><div><strong>Dina</strong><span>Operations console</span></div></div><button className="icon-button" onClick={() => setMenuOpen(false)}><X size={20} /></button></div><DesktopRail active={screen} onChange={navigate} onLogout={signOut} /></aside></div>}<Toaster position="bottom-center" /></div>;
+  return <div className="app-shell"><div className="app-main"><MobileHeader title={titles[screen]} onNotifications={() => navigate("notifications")} showBack={showBack} onBack={() => navigate("dashboard")} action={screen === "dashboard" ? <div className="mobile-header__brand"><BrandMark small /></div> : null} /><main>{content}</main><BottomNav active={screen} onChange={navigate} /></div><Toaster position="bottom-center" /></div>;
 }
