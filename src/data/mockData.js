@@ -117,7 +117,7 @@ export const tasks = [
   },
   {
     title: "Update Wi-Fi access points",
-    owner: "Alex J.",
+    owner: "Dina",
     due: "Sep 02",
     priority: "Low",
     status: "Completed",

@@ -13,7 +13,7 @@ const ticket = {
 };
 
 const activity = [
-  { author: "You", time: "9:32 AM", text: "Ticket assigned to Alex." },
+  { author: "You", time: "9:32 AM", text: "Ticket assigned to Dina." },
   { author: "System", time: "9:27 AM", text: "Priority changed to High." },
   {
     author: "Maya Patel",
