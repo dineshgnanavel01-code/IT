@@ -684,3 +684,32 @@ h2 { margin-top: 5px; font-size: 19px; line-height: 1.08; }
 .dark .settings-list > button:hover {
   background: #102951;
 }
+
+
+/* Dashboard profile contrast: the Dina identity stays readable on every theme. */
+.dashboard-welcome__profile {
+  border-color: #cad9ed;
+  background: linear-gradient(135deg, #ffffff 0%, #edf4ff 100%);
+}
+
+.dashboard-welcome__profile strong {
+  color: #11223d;
+}
+
+.dashboard-welcome__profile span:not(.user-avatar) {
+  color: #687991;
+}
+
+.dark .dashboard-welcome__profile {
+  border-color: #5574a5;
+  background: linear-gradient(135deg, #f9fbff 0%, #dfeaff 100%);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, .22);
+}
+
+.dark .dashboard-welcome__profile strong {
+  color: #11223d;
+}
+
+.dark .dashboard-welcome__profile span:not(.user-avatar) {
+  color: #687991;
+}
