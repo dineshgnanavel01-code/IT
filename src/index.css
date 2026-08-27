@@ -1418,3 +1418,35 @@ h2 { margin-top: 5px; font-size: 19px; line-height: 1.08; }
 .dark .app-main:has(.dashboard-reference) .bottom-nav__item:hover {
   color: #b6d1ff;
 }
+
+
+/* Rounded phone shell: clip the header, content, and bottom bar as one mobile frame. */
+html,
+body,
+#root {
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
+.app-shell {
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.app-main {
+  min-height: calc(100vh - 8px);
+  margin: 8px auto 0;
+  border: 1px solid rgba(135, 157, 190, .18);
+  border-radius: 32px;
+  overflow: hidden;
+}
+
+.mobile-header {
+  border-top-left-radius: 31px;
+  border-top-right-radius: 31px;
+}
+
+.bottom-nav {
+  border-bottom-right-radius: 32px;
+  border-bottom-left-radius: 32px;
+}
