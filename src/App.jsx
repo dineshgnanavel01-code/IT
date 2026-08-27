@@ -104,7 +104,7 @@ function UserAvatar({ initials = "AJ", large = false }) {
 }
 
 function BottomNav({ active, onChange }) {
-  return <nav className="bottom-nav" aria-label="Primary navigation">{navItems.map(({ id, label, icon: Icon }) => <button key={id} className={cn("bottom-nav__item", active === id && "bottom-nav__item--active")} onClick={() => onChange(id)}><Icon size={20} strokeWidth={active === id ? 2.5 : 1.8} /><span>{label}</span></button>)}</nav>;
+  return <nav className="bottom-nav" aria-label="Primary navigation">{navItems.map(({ id, label, icon: Icon }) => <button type="button" key={id} className={cn("bottom-nav__item", active === id && "bottom-nav__item--active")} onClick={() => onChange(id)} aria-current={active === id ? "page" : undefined}><Icon size={20} strokeWidth={active === id ? 2.5 : 1.8} /><span>{label}</span></button>)}</nav>;
 }
 
 function DesktopRail({ active, onChange, onLogout }) {
