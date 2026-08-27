@@ -1332,3 +1332,12 @@ h2 { margin-top: 5px; font-size: 19px; line-height: 1.08; }
 .dark .reference-overline {
   color: #17233c;
 }
+
+
+/* Keep the bottom navigation inside the phone-width frame on wide browser previews. */
+.bottom-nav {
+  right: auto;
+  left: 50%;
+  width: min(100vw, 620px);
+  transform: translateX(-50%);
+}
