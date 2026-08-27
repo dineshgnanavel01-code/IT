@@ -1019,3 +1019,316 @@ h2 { margin-top: 5px; font-size: 19px; line-height: 1.08; }
   border-top-color: rgba(187, 211, 246, .62);
   background: #081a35;
 }
+
+
+/* Reference dashboard mode: a light mobile phone surface inside a deep navy frame. */
+.app-shell {
+  background: #0e2038;
+}
+
+.app-main {
+  overflow: hidden;
+  background: #f7f9fc;
+  border-radius: 32px 32px 0 0;
+}
+
+.mobile-header {
+  border-bottom-color: #e7edf5;
+  background: #f7f9fc;
+}
+
+.dashboard-reference {
+  min-height: calc(100vh - 68px);
+  padding-top: 21px;
+  background: #f7f9fc;
+  color: #17233c;
+}
+
+.reference-dashboard-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 22px;
+}
+
+.reference-overline {
+  display: block;
+  margin-bottom: 5px;
+  color: #1a263b;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -.04em;
+}
+
+.reference-dashboard-heading h1 {
+  margin: 0;
+  color: #657187;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -.02em;
+}
+
+.reference-bell {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid #e1e7ef;
+  border-radius: 17px;
+  color: #17233c;
+  background: #fff;
+  box-shadow: 0 3px 8px rgba(29, 48, 79, .07);
+}
+
+.reference-bell i {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  background: #e91e63;
+}
+
+.reference-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 22px;
+}
+
+.reference-stat-card {
+  position: relative;
+  min-height: 143px;
+  padding: 18px 17px 15px;
+  border: 1px solid #edf0f4;
+  border-radius: 20px;
+  background: #fff;
+  box-shadow: 0 5px 14px rgba(29, 48, 79, .06);
+}
+
+.reference-stat-icon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 12px;
+}
+
+.reference-stat-icon--blue { color: #2f6de6; background: #dceaff; }
+.reference-stat-icon--mint { color: #008d62; background: #d0f7e5; }
+.reference-stat-icon--amber { color: #be7100; background: #fff0bf; }
+.reference-stat-icon--violet { color: #6f2bd4; background: #eee3ff; }
+
+.reference-stat-label {
+  display: block;
+  margin-bottom: 27px;
+  color: #6d798d;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.reference-stat-value {
+  display: block;
+  color: #17233c;
+  font-family: var(--font-display);
+  font-size: 30px;
+  line-height: .95;
+  letter-spacing: -.06em;
+}
+
+.reference-stat-detail {
+  display: block;
+  margin-top: 14px;
+  color: #9aa5b6;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.reference-stat-detail--warning {
+  color: #9aa5b6;
+}
+
+.glance-card {
+  margin-bottom: 25px;
+  padding: 20px 19px 18px;
+  border-radius: 21px;
+  color: #fff;
+  background: linear-gradient(135deg, #10275e 0%, #1a3f96 54%, #245fe4 100%);
+  box-shadow: 0 11px 20px rgba(35, 80, 170, .19);
+}
+
+.glance-card__overline {
+  color: #b9cbf6;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .06em;
+}
+
+.glance-card h2 {
+  margin: 9px 0 7px;
+  color: #fff;
+  font-size: 22px;
+  letter-spacing: -.04em;
+}
+
+.glance-card p {
+  margin: 0;
+  color: #e0e9ff;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.glance-card__actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.glance-card__actions button {
+  min-height: 38px;
+  padding: 0 16px;
+  border-radius: 14px;
+  color: #17233c;
+  background: #fff;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.glance-card__actions button + button {
+  color: #e6efff;
+  background: rgba(255, 255, 255, .15);
+  border: 1px solid rgba(255, 255, 255, .18);
+}
+
+.reference-recent {
+  padding: 0 0 18px;
+}
+
+.reference-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 13px;
+}
+
+.reference-section-heading h2 {
+  margin: 0;
+  color: #17233c;
+  font-size: 17px;
+  letter-spacing: -.03em;
+}
+
+.reference-section-heading button {
+  color: #3868c6;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.reference-activity-list {
+  overflow: hidden;
+  border: 1px solid #edf0f4;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 5px 14px rgba(29, 48, 79, .05);
+}
+
+.reference-activity-row {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 11px;
+  min-height: 69px;
+  padding: 11px 14px;
+  border-bottom: 1px solid #eef1f5;
+  background: #fff;
+  text-align: left;
+}
+
+.reference-activity-row:last-child {
+  border-bottom: 0;
+}
+
+.reference-activity-row > span:nth-child(2) {
+  min-width: 0;
+  flex: 1;
+}
+
+.reference-activity-row strong,
+.reference-activity-row small {
+  display: block;
+}
+
+.reference-activity-row strong {
+  color: #26344b;
+  font-size: 11px;
+}
+
+.reference-activity-row small {
+  margin-top: 4px;
+  color: #9aa5b6;
+  font-size: 9px;
+}
+
+.reference-activity-row > svg {
+  color: #9aa5b6;
+}
+
+.app-main:has(.dashboard-reference) .bottom-nav {
+  border-top: 1px solid #e1e8f0;
+  background: rgba(255, 255, 255, .97);
+  box-shadow: 0 -6px 18px rgba(29, 48, 79, .08);
+}
+
+.app-main:has(.dashboard-reference) .bottom-nav__item {
+  color: #9aa6b7;
+}
+
+.app-main:has(.dashboard-reference) .bottom-nav__item--active {
+  color: #2d6ce6;
+}
+
+.dark .app-main,
+.dark .mobile-header,
+.dark .dashboard-reference {
+  background: #f7f9fc;
+}
+
+.dark .dashboard-reference,
+.dark .reference-dashboard-heading h1,
+.dark .reference-stat-label,
+.dark .reference-stat-detail,
+.dark .reference-section-heading h2,
+.dark .reference-activity-row strong,
+.dark .reference-activity-row small {
+  color: inherit;
+}
+
+.dark .reference-dashboard-heading h1,
+.dark .reference-stat-label,
+.dark .reference-stat-detail,
+.dark .reference-activity-row small {
+  color: #6d798d;
+}
+
+.dark .reference-stat-card,
+.dark .reference-activity-list,
+.dark .reference-activity-row,
+.dark .reference-bell {
+  border-color: #edf0f4;
+  background: #fff;
+}
+
+.dark .reference-stat-value,
+.dark .reference-section-heading h2,
+.dark .reference-activity-row strong,
+.dark .reference-bell,
+.dark .reference-overline {
+  color: #17233c;
+}

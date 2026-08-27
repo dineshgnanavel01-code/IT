@@ -121,7 +121,39 @@ function MobileHeader({ title, onNotifications, showBack, onBack, action }) {
 }
 
 function Dashboard({ onNavigate }) {
-  return <div className="screen screen--dashboard"><section className="dashboard-welcome animate-in-rise"><div><p className="eyebrow eyebrow--blue">IT OPERATIONS / TUESDAY, MAY 20</p><h1>Good morning, Dina</h1><p className="muted-copy">Here’s what’s happening in your IT environment.</p></div><div className="dashboard-welcome__profile"><UserAvatar /><div><span>Workspace admin</span><strong>Dina</strong></div></div></section><section className="stat-grid animate-in-rise" aria-label="IT overview statistics"><StatCard icon={Ticket} tone="blue" label="Open Tickets" value="24" delta="4 from yesterday" /><StatCard icon={ClipboardCheck} tone="teal" label="Active Tasks" value="12" delta="2 from yesterday" /><StatCard icon={Laptop} tone="violet" label="Assets" value="148" delta="No change" neutral /></section><section className="content-grid"><div className="content-column"><WeeklyActivity /><RecentActivities onViewAll={() => onNavigate("tickets")} /></div><div className="content-column"><SystemHealth /><QuickActions onNavigate={onNavigate} /></div></section></div>;
+  const dashboardActivities = [
+    { title: "VPN gateway patched", meta: "Network operations · 8m ago", icon: ShieldCheck, tone: "teal" },
+    { title: "Laptop assigned", meta: "Dina · 1h ago", icon: Laptop, tone: "blue" },
+    { title: "Security policy reviewed", meta: "Dina · 3h ago", icon: Shield, tone: "violet" },
+  ];
+
+  return <div className="screen screen--dashboard dashboard-reference">
+    <section className="reference-dashboard-heading animate-in-rise">
+      <div><span className="reference-overline">DASHBOARD</span><h1>Good morning, Dina</h1></div>
+      <button className="reference-bell" onClick={() => onNavigate("notifications")} aria-label="Open alerts"><Bell size={21} /><i /></button>
+    </section>
+    <section className="reference-stat-grid animate-in-rise" aria-label="Dashboard statistics">
+      <ReferenceStat icon={Ticket} tone="blue" label="Open Tickets" value="24" detail="+3 today" />
+      <ReferenceStat icon={Activity} tone="mint" label="SLA Health" value="96%" detail="On track" />
+      <ReferenceStat icon={Server} tone="amber" label="Active Assets" value="186" detail="12 offline" />
+      <ReferenceStat icon={ClipboardCheck} tone="violet" label="Due Today" value="8" detail="2 overdue" />
+    </section>
+    <section className="glance-card animate-in-rise">
+      <span className="glance-card__overline">TODAY AT A GLANCE</span>
+      <h2>Operations is healthy</h2>
+      <p>3 high-priority tickets remain. Patch window starts at 11 PM.<br />Switch SW-08 needs a look.</p>
+      <div className="glance-card__actions"><button onClick={() => onNavigate("tickets")}>View tickets</button><button onClick={() => onNavigate("tasks")}>Today’s tasks</button></div>
+    </section>
+    <section className="reference-recent animate-in-rise">
+      <div className="reference-section-heading"><h2>Recent activity</h2><button onClick={() => onNavigate("notifications")}>All alerts</button></div>
+      <div className="reference-activity-list">{dashboardActivities.map(({ title, meta, icon, tone }) => <button className="reference-activity-row" key={title} onClick={() => toast(`${title} opened`)}><IconBadge icon={icon} tone={tone} /><span><strong>{title}</strong><small>{meta}</small></span><ChevronRight size={16} /></button>)}</div>
+    </section>
+  </div>;
+}
+
+function ReferenceStat({ icon, tone, label, value, detail }) {
+  const Icon = icon;
+  return <article className="reference-stat-card"><div className={cn("reference-stat-icon", `reference-stat-icon--${tone}`)}><Icon size={19} /></div><span className="reference-stat-label">{label}</span><strong className="reference-stat-value">{value}</strong><small className={cn("reference-stat-detail", detail.includes("overdue") || detail.includes("offline") ? "reference-stat-detail--warning" : "")}>{detail}</small></article>;
 }
 
 function StatCard({ icon, tone, label, value, delta, neutral }) {
@@ -214,5 +246,5 @@ export default function App() {
   const titles = { dashboard: "Dashboard", tickets: "Tickets", tasks: "Tasks", assets: "Assets", profile: "Profile", notifications: "Notifications", settings: "Settings" };
   const content = screen === "dashboard" ? <Dashboard onNavigate={navigate} /> : screen === "tickets" ? <Tickets onNavigate={navigate} /> : screen === "tasks" ? <Tasks onNavigate={navigate} /> : screen === "assets" ? <Assets onNavigate={navigate} /> : screen === "notifications" ? <Notifications /> : screen === "settings" ? <SettingsScreen onLogout={signOut} /> : <Profile onNavigate={navigate} onLogout={signOut} />;
   const showBack = screen === "notifications" || screen === "settings";
-  return <div className="app-shell"><div className="app-main"><MobileHeader title={titles[screen]} onNotifications={() => navigate("notifications")} showBack={showBack} onBack={() => navigate("dashboard")} action={screen === "dashboard" ? <div className="mobile-header__brand"><BrandMark small /></div> : null} /><main>{content}</main><BottomNav active={screen} onChange={navigate} /></div><Toaster position="bottom-center" /></div>;
+  return <div className="app-shell"><div className="app-main"><MobileHeader title={titles[screen]} onNotifications={() => navigate("notifications")} showBack={showBack} onBack={() => navigate("dashboard")} action={null} /><main>{content}</main><BottomNav active={screen} onChange={navigate} /></div><Toaster position="bottom-center" /></div>;
 }
