@@ -713,3 +713,284 @@ h2 { margin-top: 5px; font-size: 19px; line-height: 1.08; }
 .dark .dashboard-welcome__profile span:not(.user-avatar) {
   color: #687991;
 }
+
+
+/* Mobile-only product mode: keep the phone layout at every viewport width. */
+.desktop-rail {
+  display: none !important;
+}
+
+.app-shell {
+  display: block;
+  min-height: 100vh;
+}
+
+.app-main {
+  width: min(100%, 620px);
+  min-height: 100vh;
+  margin: 0 auto;
+  background: var(--canvas);
+  box-shadow: 0 0 44px rgba(12, 34, 69, .08);
+}
+
+.mobile-header {
+  display: flex !important;
+  height: 68px;
+  padding: 0 15px;
+}
+
+.mobile-header__brand {
+  display: block !important;
+}
+
+.app-main > main {
+  min-height: calc(100vh - 129px);
+}
+
+.screen--dashboard,
+.screen--inner {
+  max-width: 620px;
+  padding: 19px 16px 96px;
+}
+
+.dashboard-welcome {
+  align-items: flex-start;
+  margin-bottom: 22px;
+}
+
+.dashboard-welcome__profile {
+  display: none;
+}
+
+.dashboard-welcome h1,
+.inner-title-row h1 {
+  font-size: 29px;
+}
+
+.dashboard-welcome .muted-copy,
+.inner-title-row .muted-copy {
+  max-width: 280px;
+}
+
+.stat-grid {
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.stat-card {
+  min-height: 132px;
+  padding: 13px 11px;
+  border-radius: 16px;
+}
+
+.stat-card .icon-badge {
+  width: 29px;
+  height: 29px;
+  flex-basis: 29px;
+  border-radius: 9px;
+}
+
+.stat-card .icon-badge svg {
+  width: 14px;
+  height: 14px;
+}
+
+.stat-card__label {
+  min-height: 23px;
+  margin-top: 12px;
+  font-size: 9px;
+  line-height: 1.25;
+}
+
+.stat-card__value {
+  font-size: 27px;
+}
+
+.stat-card__delta {
+  font-size: 8px;
+  line-height: 1.2;
+}
+
+.content-grid {
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.content-column {
+  gap: 14px;
+}
+
+.content-grid .content-column:last-child {
+  display: flex;
+}
+
+.chart-card,
+.activity-card,
+.health-card,
+.quick-card {
+  padding: 17px 15px 16px;
+  border-radius: 17px;
+}
+
+.chart-wrap {
+  margin-top: 20px;
+  padding-left: 23px;
+}
+
+.quick-grid {
+  gap: 7px;
+}
+
+.quick-grid button {
+  min-height: 75px;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.quick-grid button span {
+  font-size: 9px;
+}
+
+.ticket-layout {
+  display: block;
+}
+
+.ticket-layout > .ticket-details {
+  display: none;
+}
+
+.mobile-only.ticket-details-mobile {
+  display: block;
+}
+
+.ticket-details-mobile {
+  margin-top: 14px;
+}
+
+.ticket-details {
+  padding: 17px 15px 15px;
+  border-radius: 17px;
+}
+
+.ticket-details__handle {
+  display: block;
+  width: 35px;
+  height: 3px;
+  margin: -3px auto 16px;
+  border-radius: 99px;
+  background: #ced7e4;
+}
+
+.asset-summary {
+  gap: 7px;
+}
+
+.asset-summary > div {
+  padding: 11px 10px;
+  border-radius: 13px;
+}
+
+.asset-summary span {
+  font-size: 8px;
+}
+
+.asset-summary strong {
+  font-size: 20px;
+}
+
+.asset-row {
+  padding: 13px;
+  border-radius: 16px;
+}
+
+.asset-row__aside .status-pill {
+  display: none;
+}
+
+.notification-row {
+  padding: 14px 12px;
+  border-radius: 16px;
+}
+
+.profile-hero {
+  padding: 20px;
+  border-radius: 18px;
+}
+
+.bottom-nav {
+  position: fixed;
+  z-index: 20;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: grid !important;
+  grid-template-columns: repeat(5, 1fr);
+  height: 61px;
+  padding: 5px 5px max(5px, env(safe-area-inset-bottom));
+  border-top: 1px solid rgba(218,227,238,.9);
+  background: rgba(255,255,255,.94);
+  box-shadow: 0 -7px 22px rgba(22,53,99,.07);
+  backdrop-filter: blur(16px);
+}
+
+.bottom-nav__item {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  color: #94a0b1;
+  background: transparent;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.bottom-nav__item--active {
+  color: var(--blue);
+}
+
+.mobile-drawer-backdrop {
+  position: fixed;
+  z-index: 30;
+  inset: 0;
+  display: block;
+  background: rgba(3, 15, 37, .38);
+  backdrop-filter: blur(4px);
+}
+
+.mobile-drawer {
+  width: min(84vw, 300px);
+  height: 100%;
+  padding: 21px 15px;
+  background: var(--navy);
+}
+
+.mobile-drawer__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 29px;
+}
+
+.mobile-drawer__top .desktop-rail__brand {
+  display: flex;
+  padding: 0;
+}
+
+.mobile-drawer .desktop-rail {
+  display: flex !important;
+  width: 100%;
+  min-height: auto;
+  padding: 0;
+}
+
+.mobile-drawer .desktop-rail__brand,
+.mobile-drawer .desktop-rail__workspace,
+.mobile-drawer .desktop-rail__footer {
+  display: none;
+}
+
+.mobile-drawer .desktop-rail__nav {
+  width: 100%;
+}
